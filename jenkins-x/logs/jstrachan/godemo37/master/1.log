@@ -1,0 +1,85 @@
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-5cprs[0m
+{"level":"warn","ts":1584702744.286218,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584702744.28684,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-mjk2p[0m
+{"level":"warn","ts":1584702745.4138772,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1584702745.4163966,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-jstrachan-godemo37-master-4q9sv-nggdv[0m
+{"level":"warn","ts":1584702842.8429809,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1584702844.7032487,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/godemo37.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/godemo37 main.go
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0320 11:14:19.265200      11 metadata.go:241] Failed to unmarshal scopes: invalid character 'h' looking for beginning of value
+[36mINFO[0m[0001] No base image, nothing to extract            
+[36mINFO[0m[0001] cmd: EXPOSE                                  
+[36mINFO[0m[0001] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0001] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0001] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0001] Taking snapshot of full filesystem...        
+[36mINFO[0m[0001] EXPOSE 8080                                  
+[36mINFO[0m[0001] cmd: EXPOSE                                  
+[36mINFO[0m[0001] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0001] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0001] ENTRYPOINT ["/godemo37"]                     
+[36mINFO[0m[0001] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0001] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0001] COPY ./bin/ /                                
+[36mINFO[0m[0001] Taking snapshot of files...                  
+2020/03/20 11:14:23 pushed blob: sha256:0a8f87c5dca7095bb8cadabff0d1bce418c35bb2c333ff4653ad7e9897de9760
+2020/03/20 11:14:24 pushed blob: sha256:bbef50e2014d23af9c42e88e3ef3cea9a8e32417872159aed1db1594e1317218
+2020/03/20 11:14:25 gcr.io/*********-multicluster/godemo37:0.0.1: digest: sha256:e7212b7c26d52befd2dcbd165252c2dda1335e8860bee2440e800ac0a07c2dff size: 428
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/godemo37 to an unshallow repository
+Generating change log from git ref 6aa9a1e30d61d5849fb11c43e86297134f500a2f => c197e89998313590fef8f9221b1ee397c092a941
+Associating user x-0 in users.jenkins.io with email james.strachan@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 85e41558f2f530959c828fea92afbd76ef533ffe with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for *********/godemo37 and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/*********/godemo37/releases/tag/v0.0.1
+generated: /workspace/source/charts/godemo37/templates/release.yaml
+Created Release godemo37-0-0-1 resource in namespace **
+Updating PipelineActivity *********-godemo37-master-1 with version 0.0.1
+Updated PipelineActivities *********-godemo37-master-1 with release notes URL: https://github.com/*********/godemo37/releases/tag/v0.0.1
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: bucketrepo http://bucketrepo/bucketrepo/charts/
+Successfully added Helm repository bucketrepo.
+Uploading chart file godemo37-0.0.1.tgz to http://bucketrepo/bucketrepo/charts/api/charts
+Received 200 response: 
+
+Showing logs for build [32mjstrachan-godemo37-master-4q9sv-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app godemo37 version 0.0.1 to namespace **-staging
+WARNING: 
+Created Pull Request: https://github.com/*********/environment-bucketrepo-staging/pull/27
+Added label updatebot to Pull Request https://github.com/*********/environment-bucketrepo-staging/pull/27
+WARNING: Failed to query the Pull Request last commit status for https://github.com/*********/environment-bucketrepo-staging/pull/27 ref 23cffc35e84545960927241b713f1aa35f53563a Could not find a status for repository *********/environment-bucketrepo-staging with ref 23cffc35e84545960927241b713f1aa35f53563a
+got git provider status pending from PR https://github.com/*********/environment-bucketrepo-staging/pull/27
+got git provider status pending from PR https://github.com/*********/environment-bucketrepo-staging/pull/27
+got git provider status pending from PR https://github.com/*********/environment-bucketrepo-staging/pull/27
+error: Pull request https://github.com/*********/environment-bucketrepo-staging/pull/27 last commit has status failure for ref 23cffc35e84545960927241b713f1aa35f53563a
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-jx-promote'. The execution of the pipeline has stopped.[0m
